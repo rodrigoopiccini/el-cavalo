@@ -44,3 +44,16 @@ resultado = preenche_frota(frota, nome_navio, linha, coluna, orientacao, tamanho
 print(resultado)
 
 
+# 3 - faz jogada
+
+def faz_jogada(tabuleiro, linha, coluna):
+    posicao = tabuleiro[linha][coluna]
+
+    if posicao == 1:
+        tabuleiro[linha][coluna] = 'X'
+
+    else:
+        tabuleiro[linha][coluna] = '-'
+
+    return tabuleiro
+
