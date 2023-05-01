@@ -33,7 +33,6 @@ def preenche_frota (frota, nome_navio, linha, coluna, orientacao, tamanho):
     return frota
 
 # 3 - faz jogada
-
 def faz_jogada(tabuleiro, linha, coluna):
     posicao = tabuleiro[linha][coluna]
 
@@ -46,7 +45,6 @@ def faz_jogada(tabuleiro, linha, coluna):
     return tabuleiro
 
 # 4 - posiciona frota
-
 def posiciona_frota(frota):
 
     tabuleiro = [[0 for i in range(10)] for j in range(10)]
@@ -57,4 +55,23 @@ def posiciona_frota(frota):
                 tabuleiro[linha][coluna] = 1
     
     return tabuleiro
+
+# 5 - quantas embarcações afundadas?
+def afundados (frota, tabuleiro):
+    contador = 0
+
+    for tipo, posicoes in frota.items():
+        for posicao in posicoes:
+            for linha, coluna in posicao:
+                if tabuleiro[linha][coluna] == 'X':
+                    continua = True
+
+                else:
+                    continua = False
+                    break
+
+            if continua:
+                contador += 1
+    
+    return contador
 
