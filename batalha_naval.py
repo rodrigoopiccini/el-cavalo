@@ -32,18 +32,6 @@ def preenche_frota (frota, nome_navio, linha, coluna, orientacao, tamanho):
     
     return frota
 
-
-frota = {'navio-tanque': [[[6, 1], [6, 2], [6, 3]]]}
-nome_navio = 'navio-tanque'
-linha = 4
-coluna = 7
-orientacao = 'vertical'
-tamanho = 3
-
-resultado = preenche_frota(frota, nome_navio, linha, coluna, orientacao, tamanho)
-print(resultado)
-
-
 # 3 - faz jogada
 
 def faz_jogada(tabuleiro, linha, coluna):
@@ -55,5 +43,18 @@ def faz_jogada(tabuleiro, linha, coluna):
     else:
         tabuleiro[linha][coluna] = '-'
 
+    return tabuleiro
+
+# 4 - posiciona frota
+
+def posiciona_frota(frota):
+
+    tabuleiro = [[0 for i in range(10)] for j in range(10)]
+    
+    for tipo, posicoes in frota.items():
+        for posicao in posicoes:
+            for linha, coluna in posicao:
+                tabuleiro[linha][coluna] = 1
+    
     return tabuleiro
 
